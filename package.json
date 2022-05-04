@@ -1,0 +1,17 @@
+{
+  "name": "auto-video",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "bin": {
+    "video": "./bin/cli.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.3",
+    "axios": "^0.26.1",
+    "dayjs": "^1.11.1",
+    "inquirer": "^8.2.2",
+    "minimist": "^1.2.6",
+    "puppeteer": "^13.7.0"
+  }
+}
