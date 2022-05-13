@@ -86,13 +86,16 @@ async function publish(dataPath, count = Infinity) {
   }
 }
 
-async function publishTime(dataPath) {
+async function publishTime(dataPath, dateTime, times) {
   
   const data = readByJson(dataPath)
   try {
     const vlist = data.vlist.filter(item => !item.send && item.download)
 
-    createPublishTime(vlist)
+    vlist.forEach(item => {
+      item.title = item.replace(/(\d+-\d+)/, str => `【命中注定我爱你${str}】`)
+    })
+    createPublishTime(vlist, dateTime, times)
     saveByJson(dataPath, data)
   } catch (e) {
     console.error(e)
@@ -102,7 +105,7 @@ async function publishTime(dataPath) {
 // const dataPath = path.resolve(dataDir, '放羊的星星.json')
 const dataPath = path.resolve(dataDir, '命中注定我爱你.json')
 // publish(dataPath)
-download(dataPath, 40)
-// publishTime()
+// download(dataPath)
+publishTime(dataPath, '2022-05-30', ['00:00', '08:09', '12:00', '18:00', '20:00', '22:00'])
 // getData('75638900', '绿光森林')
 // getData('340792517')
