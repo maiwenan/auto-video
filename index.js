@@ -93,7 +93,8 @@ async function publishTime(dataPath, dateTime, times) {
     const vlist = data.vlist.filter(item => !item.send && item.download)
 
     vlist.forEach(item => {
-      item.title = item.replace(/(\d+-\d+)/, str => `【命中注定我爱你${str}】`)
+      // item.title = item.title.replace(/(\d+-\d+)/, str => `【命中注定我爱你 ${str}】`)
+      item.title = `${item.title} #笑傲江湖`
     })
     createPublishTime(vlist, dateTime, times)
     saveByJson(dataPath, data)
@@ -103,9 +104,10 @@ async function publishTime(dataPath, dateTime, times) {
 }
 
 // const dataPath = path.resolve(dataDir, '放羊的星星.json')
-const dataPath = path.resolve(dataDir, '命中注定我爱你.json')
-// publish(dataPath)
+const dataPath = path.resolve(dataDir, '笑傲江湖.json')
+publish(dataPath)
 // download(dataPath)
-publishTime(dataPath, '2022-05-30', ['00:00', '08:09', '12:00', '18:00', '20:00', '22:00'])
+// publishTime(dataPath, '2022-05-30', ['00:00', '08:09', '12:00', '18:00', '20:00', '22:00'])
+// publishTime(dataPath, '2022-05-30', ['08:09', '12:00', '18:00', '22:00'])
 // getData('75638900', '绿光森林')
-// getData('340792517')
+// getData('287549943', '笑傲江湖')
